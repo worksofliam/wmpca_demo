@@ -1,0 +1,30 @@
+include ./navbar
+
+.mt-5
+  .columns
+    .column
+    .column.is-two-thirds
+      .level 
+        nav.breadcrumb(aria-label='breadcrumbs')
+          ul
+            li
+              a(href='/departments') Departments
+            li
+              a(href='/departments/' + departmentNo + '/projects') Projects
+            li
+              a(href='/departments/' + departmentNo + '/projects/' + projectNo + '/activity') Activity
+      .level
+        table.table.is-hoverable.is-fullwidth
+          thead 
+            tr 
+              th Activity Number
+              th Start date 
+              th Description
+
+          tbody 
+            each activity in activities
+              tr 
+                td=activity.ACTNO 
+                td=activity.ACSTDATE 
+                td=activity.ACTDESC 
+    .column

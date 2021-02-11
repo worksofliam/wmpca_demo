@@ -1,0 +1,31 @@
+include ./navbar
+
+.mt-5
+  .columns
+    .column
+    .column.is-two-thirds
+      .level 
+        nav.breadcrumb(aria-label='breadcrumbs')
+          ul
+            li
+              a(href='/departments') Departments
+            li
+              a(href='/departments/' + departmentNo + '/projects') Projects
+      .level
+        table.table.is-hoverable.is-fullwidth
+          thead 
+            tr 
+              th Number
+              th Name 
+              th Project Leader
+              th Due Completion 
+
+          tbody 
+            each project in projects
+              tr 
+                td
+                  a(href='/departments/' + departmentNo + '/projects/' + project.PROJNO + '/activity')=project.PROJNO 
+                td=project.PROJNAME 
+                td=project.RESPEMP 
+                td=project.PRENDATE
+    .column

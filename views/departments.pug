@@ -1,0 +1,32 @@
+include ./navbar
+
+
+
+.mt-5
+  .columns
+    .column
+    .column.is-two-thirds
+      .level 
+        nav.breadcrumb(aria-label='breadcrumbs')
+          ul
+            li
+              a(href='#') Departments
+      .level
+        table.table.is-hoverable.is-fullwidth
+          thead 
+            tr 
+              th Number
+              th
+                a(href='/departments?nameSort=' + (nameSort === 'desc' ? 'asc' : 'desc')) Name 
+              th Manager No.
+              th Location 
+
+          tbody 
+            each department in departments
+              tr 
+                td
+                  a(href='/departments/' + department.DEPTNO + '/projects')=department.DEPTNO
+                td=department.DEPTNAME 
+                td=department.MGRNO 
+                td=department.LOCATION
+    .column
